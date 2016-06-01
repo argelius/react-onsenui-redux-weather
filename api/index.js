@@ -25,8 +25,6 @@ export const queryWeather = (city) => {
         return Promise.reject('Invalid response');
       }
 
-      console.log(json);
-
       return {
         temperature: round(kelvinToCelsius(json.main.temp), 1),
         humidity: json.main.humidity,
