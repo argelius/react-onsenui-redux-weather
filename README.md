@@ -1,2 +1,3 @@
-# react-onsenui-routing
-Routing with Onsen UI and React
+# react-onsenui-redux-weather
+
+Weather app using Onsen UI, Redux, React and Webpack.
