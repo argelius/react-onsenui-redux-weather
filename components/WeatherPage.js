@@ -2,18 +2,20 @@ import React, {Component} from 'react';
 
 import {
   Page,
-  Toolbar,
-  Fab
+  Toolbar
 } from 'react-onsenui';
 
 import NavBar from './NavBar';
-import LocationList from '../containers/LocationList';
-import AddLocation from '../containers/AddLocation';
+import Flag from './Flag';
+import WeatherIcon from './WeatherIcon';
 
-const WeatherPage = ({location, navigator}) => {
+
+const WeatherPage = ({navigator, name, temperature, humidity, country}) => {
   return (
-    <Page renderToolbar={() => <NavBar backButton={true} title='Weather in Tokyo' navigator={navigator} />}>
-      Hi!
+    <Page renderToolbar={() => <NavBar backButton={true} title={`Weather in ${name}`} navigator={navigator} />}>
+      <h1>
+        {name}
+      </h1>
     </Page>
   );
 };

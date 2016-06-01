@@ -9,7 +9,7 @@ import {
 } from 'react-onsenui';
 
 import {closeDialog} from '../actions';
-import {addLocation} from '../actions';
+import {addLocationAndFetchWeather} from '../actions';
 
 const AddLocationDialog = ({isOpen, dispatch}) => {
   let input, disabled = false;
@@ -18,7 +18,7 @@ const AddLocationDialog = ({isOpen, dispatch}) => {
 		const node = findDOMNode(input);
 
 		if (node.value.length > 0) {
-			dispatch(addLocation({name: node.value}));
+			dispatch(addLocationAndFetchWeather(node.value));
 			node.value = '';
 			dispatch(closeDialog());
 		};

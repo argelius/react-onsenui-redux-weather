@@ -2,7 +2,9 @@ import React from 'react';
 import {render} from 'react-dom';
 
 import {Provider} from 'react-redux';
-import {createStore} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
+import thunk from 'redux-thunk';
+import createLogger from 'redux-logger';
 
 import weatherApp from './reducers';
 import App from './components/App';
@@ -11,11 +13,19 @@ import 'onsenui';
 import 'onsenui/css/onsenui.css';
 import 'onsenui/css/onsen-css-components.css';
 
-const store = createStore(weatherApp);
+import './icons/css/weather-icons.css';
+import 'flag-icon-css/css/flag-icon.css';
 
-import {addLocation} from './actions';
+const logger = createLogger();
 
-store.dispatch(addLocation({name: 'Tokyo'}));
+const store = createStore(weatherApp,
+  window.devToolsExtension ? window.devToolsExtension() : f => f,
+  applyMiddleware(thunk, logger),
+);
+
+import {addLocationAndFetchWeather} from './actions';
+
+store.dispatch(addLocationAndFetchWeather('Tokyo'));
 
 render(
   <Provider store={store}>

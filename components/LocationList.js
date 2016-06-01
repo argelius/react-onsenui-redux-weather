@@ -3,13 +3,15 @@ import Location from './Location'
 
 import {List} from 'react-onsenui';
 
-const LocationList = ({locations, navigator}) => (
+const LocationList = ({locations, onRemoveLocation, onSelectLocation, navigator}) => (
   <List
-    dataSource={locations}
+    dataSource={Object.keys(locations).map((key) => locations[key])}
     renderRow={(location) =>
       <Location
         key={location.id}
         navigator={navigator}
+        onRemoveLocation={onRemoveLocation}
+        onSelectLocation={onSelectLocation}
         {...location}
       />
     }
@@ -17,7 +19,7 @@ const LocationList = ({locations, navigator}) => (
 );
 
 LocationList.propTypes = {
-  locations: PropTypes.arrayOf(PropTypes.shape({
+  locations: PropTypes.objectOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired
   }).isRequired).isRequired
