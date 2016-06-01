@@ -1,7 +1,7 @@
 import fetch from 'isomorphic-fetch';
 import Promise from 'promise';
 
-const API_KEY = 'e012e035583f16942878c325122b91cf';
+const API_KEY = '5a043a1bd95bf3ee500eb89de107b41e';
 const API_URL = 'http://api.openweathermap.org/data/2.5/weather';
 
 const kelvinToCelsius = (kelvin) => kelvin - 273.15;
