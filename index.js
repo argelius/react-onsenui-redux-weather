@@ -25,7 +25,16 @@ const store = createStore(weatherApp,
 
 import {addLocationAndFetchWeather} from './actions';
 
-store.dispatch(addLocationAndFetchWeather('Tokyo'));
+[
+  'Tokyo',
+  'New York',
+  'Paris',
+  'Beijing',
+  'Sydney',
+  'Toronto',
+  'Buenos Aires',
+  'Stockholm'
+].forEach((city) => store.dispatch(addLocationAndFetchWeather(city)));
 
 render(
   <Provider store={store}>

@@ -17,52 +17,45 @@ const WeatherPage = ({navigator, name, temperature, humidity, country, icon, isF
 
   if (isInvalid) {
     content = (
-      <div style={{margin: '50% 0 0 0', color: 'red', textAlign: 'center', fontSize: '40px'}}>Unable to fetch data!</div>
+      <div style={{color: 'red', fontSize: '40px'}}>Unable to fetch data!</div>
     );
   }
   else if (isFetching) {
     content = (
-      <div style={{textAlign: 'center', margin: '50% 0 0 0'}}>
-        <ProgressCircular style={{width: '100px', height: '100px'}} indeterminate />
-      </div>
+      <ProgressCircular style={{width: '100px', height: '100px'}} indeterminate />
     );
   }
   else {
     content = (
-      <div>
+      <div style={{
+        opacity: 0.8
+      }}>
         <div style={{
-          textAlign: 'center',
-          marginTop: '30%',
-          opacity: 0.8
+          textTransform: 'uppercase',
+          fontSize: '40px'
         }}>
-          <div style={{
-            margin: '20px 0 0 0',
-            textTransform: 'uppercase',
-            fontSize: '40px'
-          }}>
-            {name}
-          </div>
-          <div style={{
-            margin: '0 0 0 0',
-            textTransform: 'uppercase',
-            fontSize: '22px'
-          }}>
-            {countries[country.toUpperCase()].name}
-          </div>
+          {name}
+        </div>
+        <div style={{
+          margin: '0 0 0 0',
+          textTransform: 'uppercase',
+          fontSize: '22px'
+        }}>
+          {countries[country.toUpperCase()].name}
+        </div>
 
-          <div style={{
-            fontSize: '100px',
-            margin: '20px 0 30px 0'
-          }}>
-            <WeatherIcon icon={icon} />
-          </div>
+        <div style={{
+          fontSize: '100px',
+          margin: '20px 0 30px 0'
+        }}>
+          <WeatherIcon icon={icon} />
+        </div>
 
-          <div style={{
-            fontSize: '60px',
-            margin: '10px 0 0 0'
-          }}>
-            <div>{temperature}&deg;C</div>
-          </div>
+        <div style={{
+          fontSize: '60px',
+          margin: '10px 0 0 0'
+        }}>
+          <div>{temperature}&deg;C</div>
         </div>
       </div>
     );
@@ -70,7 +63,15 @@ const WeatherPage = ({navigator, name, temperature, humidity, country, icon, isF
 
   return (
     <Page renderToolbar={() => <NavBar backButton={true} title={`Weather in ${name}`} navigator={navigator} />}>
+      <div style={{
+        textAlign: 'center',
+        position: 'absolute',
+        top: '50%',
+        width: '100%',
+        transform: 'translate3d(0, -50%, 0)'
+      }}>
       {content}
+      </div>
     </Page>
   );
 };

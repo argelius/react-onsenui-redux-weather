@@ -1,5 +1,7 @@
 import React, {PropTypes} from 'react'
 
+import {platform} from 'onsenui';
+
 import {ListItem} from 'react-onsenui';
 
 import WeatherPage from '../containers/WeatherPage';
@@ -24,7 +26,13 @@ const Location = ({id, name, temperature, humidity, icon, country, isFetching, i
   else {
     subtitle = (
       <span>
-        {temperature}&deg;C&nbsp;{humidity}%
+        <span style={{display: 'inline-block', width: '16px'}}>
+          🌡
+        </span>
+        {temperature}&#x2103;&nbsp;
+        <span style={{display: 'inline-block', width: '16px'}}>
+          ☔
+        </span>{humidity}%
       </span>
     );
   }
@@ -36,14 +44,14 @@ const Location = ({id, name, temperature, humidity, icon, country, isFetching, i
   return (
     <ListItem onClick={() => {onSelectLocation.call(null, id); navigator.pushPage({component: WeatherPage});}} tappable>
       <div className='left'>
-        <WeatherIcon icon={icon} />
+        <WeatherIcon style={platform.isAndroid() ? {fontSize: '22px'} : null} icon={icon} />
       </div>
       <div className='center'>
         <div className='list__item__title'>
+          {flag}
           {name}
         </div>
         <div className='list__item__subtitle'>
-          {flag}
           {subtitle}
         </div>
       </div>
