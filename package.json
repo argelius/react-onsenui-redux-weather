@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --progress",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js && ncp index.html dist/",
-    "deploy": "npm run build && git commit dist -m \"Deploy\" && git push origin master && git subtree push --prefix build origin gh-pages"
+    "deploy": "npm run build && git commit dist -m \"Deploy\" && git push origin master && git subtree push --prefix dist origin gh-pages"
   },
   "repository": {
     "type": "git",

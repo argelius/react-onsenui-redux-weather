@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import LocationList from '../components/LocationList'
 
-import {removeLocation, selectLocation} from '../actions';
+import {removeLocation, selectLocation, fetchWeather} from '../actions';
 
 const mapStateToProps = (state) => {
   return {
@@ -12,7 +12,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onRemoveLocation: (id) => dispatch(removeLocation(id)),
-    onSelectLocation: (id) => dispatch(selectLocation(id))
+    onSelectLocation: (id) => dispatch(selectLocation(id)),
+    onRefresh: (id) => dispatch(fetchWeather(id))
   };
 };
 

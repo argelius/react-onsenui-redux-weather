@@ -8,7 +8,7 @@ import WeatherPage from '../containers/WeatherPage';
 import Flag from './Flag';
 import WeatherIcon from './WeatherIcon';
 
-const Location = ({id, name, temperature, humidity, icon, country, isFetching, isInvalid, navigator, onRemoveLocation, onSelectLocation}) => {
+const Location = ({id, name, temperature, humidity, icon, country, isFetching, isInvalid, navigator, onRemoveLocation, onSelectLocation, onRefresh}) => {
   let subtitle;
 
   if (isInvalid) {
@@ -56,6 +56,9 @@ const Location = ({id, name, temperature, humidity, icon, country, isFetching, i
         </div>
       </div>
       <div className='right'>
+        <div onClick={(e) => {e.stopPropagation(); onRefresh.call(null, id);}} className='list__item__label'>
+          Refresh
+        </div>
         <div onClick={(e) => {e.stopPropagation(); onRemoveLocation.call(null, id);}} className='list__item__label'>
           Remove
         </div>
