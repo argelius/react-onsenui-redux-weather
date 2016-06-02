@@ -97,8 +97,6 @@
 	
 	var logger = (0, _reduxLogger2.default)();
 	
-	console.log(process.NODE_ENV);
-	
 	var store = (0, _redux.createStore)(_reducers2.default, window.devToolsExtension ? window.devToolsExtension() : function (f) {
 	  return f;
 	}, process.NODE_ENV === 'production' ? (0, _redux.applyMiddleware)(_reduxThunk2.default) : (0, _redux.applyMiddleware)(_reduxThunk2.default, logger));
