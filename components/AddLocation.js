@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 import {platform} from 'onsenui';
 
@@ -17,7 +17,7 @@ const AddLocation = ({actions}) => {
 	if (platform.isAndroid()) {
 		button = (
 			<Fab
-        onClick={onButtonClick}
+        onClick={actions.openDialog}
 				ripple
 				position='bottom right'>
 				<Icon icon='md-plus' />

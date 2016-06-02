@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 import {
   Navigator
@@ -6,22 +6,15 @@ import {
 
 import MainPage from './MainPage';
 
-export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.renderPage = this.renderPage.bind(this);
-  }
+const renderPage = (route, navigator) => (
+  <route.component key={route.key} navigator={navigator} />
+);
 
-  renderPage(route, navigator) {
-    return <route.component key={route.key} navigator={navigator} />;
-  }
+const App = () => (
+  <Navigator
+    renderPage={renderPage}
+    initialRoute={{component: MainPage, key: 'MAIN_PAGE'}}
+  />
+);
 
-  render() {
-    return (
-      <Navigator
-        renderPage={this.renderPage}
-        initialRoute={{component: MainPage, key: 'MAIN_PAGE'}}
-      />
-    );
-  }
-}
+export default App;

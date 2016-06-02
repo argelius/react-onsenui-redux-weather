@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 import {
   Page,
@@ -10,13 +10,11 @@ import NavBar from './NavBar';
 import LocationList from '../containers/LocationList';
 import AddLocation from '../containers/AddLocation';
 
-const MainPage = ({navigator}) => {
-  return (
-    <Page renderToolbar={() => <NavBar title='Locations' navigator={navigator} />}>
-      <LocationList navigator={navigator} />
-      <AddLocation />
-    </Page>
-  );
-};
+const MainPage = ({navigator}) => (
+  <Page renderToolbar={() => <NavBar title='Locations' navigator={navigator} />}>
+    <LocationList navigator={navigator} />
+    <AddLocation />
+  </Page>
+);
 
 export default MainPage;

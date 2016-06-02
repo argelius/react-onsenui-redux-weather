@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {countries} from 'country-data';
 
 import {
@@ -10,7 +10,6 @@ import {
 import NavBar from './NavBar';
 import Flag from './Flag';
 import WeatherIcon from './WeatherIcon';
-
 
 const WeatherPage = ({navigator, name, temperature, humidity, country, icon, isFetching, isInvalid}) => {
   let content;
