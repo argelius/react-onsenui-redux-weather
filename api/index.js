@@ -31,6 +31,6 @@ export const queryWeather = (city) => {
         icon: json.weather[0].id,
         name: json.name,
         country: json.sys.country.toLowerCase()
-      }
+      };
     });
 };

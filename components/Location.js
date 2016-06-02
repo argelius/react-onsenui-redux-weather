@@ -8,7 +8,7 @@ import WeatherPage from '../containers/WeatherPage';
 import Flag from './Flag';
 import WeatherIcon from './WeatherIcon';
 
-const Location = ({id, name, temperature, humidity, icon, country, isFetching, isInvalid, navigator, onRemoveLocation, onSelectLocation, onRefresh}) => {
+const Location = ({id, name, temperature, humidity, icon, country, isFetching, isInvalid, navigator, actions}) => {
   let subtitle;
 
   if (isInvalid) {
@@ -42,7 +42,10 @@ const Location = ({id, name, temperature, humidity, icon, country, isFetching, i
     : null;
 
   return (
-    <ListItem onClick={() => {onSelectLocation.call(null, id); navigator.pushPage({component: WeatherPage});}} tappable>
+    <ListItem onClick={() => {
+      actions.selectLocation(id);
+      navigator.pushPage({component: WeatherPage});
+    }} tappable>
       <div className='left'>
         <WeatherIcon style={platform.isAndroid() ? {fontSize: '22px'} : null} icon={icon} />
       </div>
@@ -56,10 +59,16 @@ const Location = ({id, name, temperature, humidity, icon, country, isFetching, i
         </div>
       </div>
       <div className='right'>
-        <div onClick={(e) => {e.stopPropagation(); onRefresh.call(null, id);}} className='list__item__label'>
+        <div onClick={(e) => {
+          e.stopPropagation();
+          actions.fetchWeather(id);
+        }} className='list__item__label'>
           Refresh
         </div>
-        <div onClick={(e) => {e.stopPropagation(); onRemoveLocation.call(null, id);}} className='list__item__label'>
+        <div onClick={(e) => {
+          e.stopPropagation();
+          actions.removeLocation(id);
+        }} className='list__item__label'>
           Remove
         </div>
       </div>

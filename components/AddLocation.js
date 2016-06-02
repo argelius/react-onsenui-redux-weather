@@ -11,7 +11,7 @@ import {
   Dialog
 } from 'react-onsenui';
 
-const AddLocation = ({onButtonClick}) => {
+const AddLocation = ({actions}) => {
 	let button;
 
 	if (platform.isAndroid()) {
@@ -26,7 +26,7 @@ const AddLocation = ({onButtonClick}) => {
 	}
 	else {
 		button = (
-			<Button onClick={onButtonClick} modifier='large quiet'>Add location</Button>
+			<Button onClick={actions.openDialog} modifier='large quiet'>Add location</Button>
 		);
 	}
 

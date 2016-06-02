@@ -1,50 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {findDOMNode} from 'react-dom';
+import {bindActionCreators} from 'redux';
 
-import {
-  AlertDialog,
-  Button,
-  Input
-} from 'react-onsenui';
-
-import {closeDialog} from '../actions';
-import {addLocationAndFetchWeather} from '../actions';
-
-const AddLocationDialog = ({isOpen, dispatch}) => {
-  let input, disabled = false;
-
-	const handleButtonClick = () => {
-		const node = findDOMNode(input);
-
-		if (node.value.length > 0) {
-			dispatch(addLocationAndFetchWeather(node.value));
-			node.value = '';
-			dispatch(closeDialog());
-		};
-	};
-
-  return (
-    <AlertDialog isOpen={isOpen} isCancelable={true} onCancel={() => dispatch(closeDialog())}>
-			<div className="alert-dialog-title">Add a location</div>
-			<div className="alert-dialog-content">
-				<Input
-					modifier='underbar'
-					ref={node => input = node}
-					placeholder='Location name' float
-				 />
-			</div>
-			<div className="alert-dialog-footer">
-				<button onClick={() => dispatch(closeDialog())} className="alert-dialog-button">
-					Cancel
-				</button>
-				<button onClick={handleButtonClick} className="alert-dialog-button">
-					OK
-				</button>
-			</div>
-    </AlertDialog>
-  );
-};
+import AddLocationDialog from '../components/AddLocationDialog';
+import * as Actions from '../actions';
 
 const mapStateToProps = (state) => {
   return {
@@ -52,4 +11,10 @@ const mapStateToProps = (state) => {
   }
 };
 
-export default connect(mapStateToProps)(AddLocationDialog);
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(Actions, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddLocationDialog);

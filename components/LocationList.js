@@ -1,18 +1,15 @@
 import React, {PropTypes} from 'react'
-import Location from './Location'
+import Location from '../containers/Location'
 
 import {List} from 'react-onsenui';
 
-const LocationList = ({locations, onRemoveLocation, onSelectLocation, onRefresh, navigator}) => (
+const LocationList = ({locations, navigator}) => (
   <List
     dataSource={Object.keys(locations).map((key) => locations[key])}
     renderRow={(location) =>
       <Location
         key={location.id}
         navigator={navigator}
-        onRefresh={onRefresh}
-        onRemoveLocation={onRemoveLocation}
-        onSelectLocation={onSelectLocation}
         {...location}
       />
     }
