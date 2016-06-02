@@ -52,10 +52,12 @@ const WeatherPage = ({navigator, name, temperature, humidity, country, icon, isF
         </div>
 
         <div style={{
-          fontSize: '60px',
+          fontSize: '40px',
           margin: '10px 0 0 0'
         }}>
-          <div>{temperature}&deg;C</div>
+          <span>{temperature}&deg;C</span>
+          &nbsp;
+          <span>{humidity}%</span>
         </div>
       </div>
     );

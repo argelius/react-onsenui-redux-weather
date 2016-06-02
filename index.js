@@ -18,9 +18,13 @@ import 'flag-icon-css/css/flag-icon.css';
 
 const logger = createLogger();
 
+console.log(process.NODE_ENV);
+
 const store = createStore(weatherApp,
   window.devToolsExtension ? window.devToolsExtension() : f => f,
-  applyMiddleware(thunk, logger),
+  process.NODE_ENV === 'production'
+    ? applyMiddleware(thunk)
+    : applyMiddleware(thunk, logger),
 );
 
 import {addLocationAndFetchWeather} from './actions';
