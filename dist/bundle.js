@@ -26614,6 +26614,9 @@
 	    },
 	    onSelectLocation: function onSelectLocation(id) {
 	      return dispatch((0, _actions.selectLocation)(id));
+	    },
+	    onRefresh: function onRefresh(id) {
+	      return dispatch((0, _actions.fetchWeather)(id));
 	    }
 	  };
 	};
@@ -26652,6 +26655,7 @@
 	  var locations = _ref.locations;
 	  var onRemoveLocation = _ref.onRemoveLocation;
 	  var onSelectLocation = _ref.onSelectLocation;
+	  var onRefresh = _ref.onRefresh;
 	  var navigator = _ref.navigator;
 	  return _react2.default.createElement(_reactOnsenui.List, {
 	    dataSource: Object.keys(locations).map(function (key) {
@@ -26661,6 +26665,7 @@
 	      return _react2.default.createElement(_Location2.default, _extends({
 	        key: location.id,
 	        navigator: navigator,
+	        onRefresh: onRefresh,
 	        onRemoveLocation: onRemoveLocation,
 	        onSelectLocation: onSelectLocation
 	      }, location));
@@ -26725,6 +26730,7 @@
 	  var navigator = _ref.navigator;
 	  var onRemoveLocation = _ref.onRemoveLocation;
 	  var onSelectLocation = _ref.onSelectLocation;
+	  var onRefresh = _ref.onRefresh;
 	
 	  var subtitle = void 0;
 	
@@ -26791,6 +26797,13 @@
 	    _react2.default.createElement(
 	      'div',
 	      { className: 'right' },
+	      _react2.default.createElement(
+	        'div',
+	        { onClick: function onClick(e) {
+	            e.stopPropagation();onRefresh.call(null, id);
+	          }, className: 'list__item__label' },
+	        'Refresh'
+	      ),
 	      _react2.default.createElement(
 	        'div',
 	        { onClick: function onClick(e) {
