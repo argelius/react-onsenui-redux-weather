@@ -1,10 +1,12 @@
+import {OPEN_DIALOG, CLOSE_DIALOG} from '../actions';
+
 const dialog = (state = {open: false}, action) => {
   switch (action.type) {
-    case 'OPEN_DIALOG':
+    case OPEN_DIALOG:
 			return {
 				open: true
 			};
-    case 'CLOSE_DIALOG':
+    case CLOSE_DIALOG:
 			return {
 				open: false
 			};
@@ -13,4 +15,4 @@ const dialog = (state = {open: false}, action) => {
   }
 };
 
-export default dialog
+export default dialog;
