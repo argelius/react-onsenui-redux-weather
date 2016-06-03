@@ -41,7 +41,7 @@ const location = (state = initialState, action) => {
         isInvalid: true
       };
     default:
-      return state
+      return state;
   }
 };
 

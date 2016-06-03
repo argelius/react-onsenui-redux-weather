@@ -1,4 +1,3 @@
-import fetch from 'isomorphic-fetch';
 import {queryWeather} from '../api';
 
 let nextLocationId = 0;
@@ -15,9 +14,9 @@ export const OPEN_DIALOG = 'OPEN_DIALOG';
 export const CLOSE_DIALOG = 'CLOSE_DIALOG';
 
 export const addLocation = (name) => ({
-    type: ADD_LOCATION,
-    id: nextLocationId++,
-    name
+  type: ADD_LOCATION,
+  id: nextLocationId++,
+  name
 });
 
 export const removeLocation = id => ({
@@ -36,9 +35,9 @@ export const requestWeather = (id) => ({
 });
 
 export const receiveWeather = (id, data) => ({
-    type: RECEIVE_WEATHER,
-    id,
-    ...data
+  type: RECEIVE_WEATHER,
+  id,
+  ...data
 });
 
 export const setFetchError = id => ({
@@ -56,9 +55,11 @@ export const fetchWeather = (id) => {
 
     dispatch(requestWeather(id));
     queryWeather(name)
-      .catch(error => dispatch(setFetchError(id)))
-      .then((data) => dispatch(receiveWeather(id, data)));
-  }
+      .then(
+        data => dispatch(receiveWeather(id, data)),
+        error => dispatch(setFetchError(id, error))
+      );
+  };
 };
 
 export const addLocationAndFetchWeather = name => {
@@ -66,7 +67,7 @@ export const addLocationAndFetchWeather = name => {
     const id = dispatch(addLocation(name)).id;
     dispatch(fetchWeather(id));
   };
-}
+};
 
 export const openDialog = () => ({
   type: OPEN_DIALOG

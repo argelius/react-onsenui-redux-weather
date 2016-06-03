@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react'
+import React from 'react';
 
 import {platform} from 'onsenui';
 
@@ -17,13 +17,11 @@ const Location = ({id, name, temperature, humidity, icon, country, isFetching, i
         Unable to fetch data!
       </span>
     );
-  }
-  else if (isFetching) {
+  } else if (isFetching) {
     subtitle = (
       <span>Fetching data...</span>
     );
-  }
-  else {
+  } else {
     subtitle = (
       <span>
         <span style={{display: 'inline-block', width: '16px'}}>

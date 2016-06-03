@@ -3,22 +3,21 @@ import {findDOMNode} from 'react-dom';
 
 import {
   AlertDialog,
-  Button,
   Input
 } from 'react-onsenui';
 
 const AddLocationDialog = ({isOpen, actions}) => {
-  let input, disabled = false;
+  let input;
 
-	const handleButtonClick = () => {
-		const node = findDOMNode(input);
+  const handleButtonClick = () => {
+    const node = findDOMNode(input);
 
-		if (node.value.length > 0) {
+    if (node.value.length > 0) {
       actions.addLocationAndFetchWeather(node.value);
-			node.value = '';
+      node.value = '';
       actions.closeDialog();
-		};
-	};
+    };
+  };
 
   return (
     <AlertDialog isOpen={isOpen} isCancelable={true} onCancel={actions.closeDialog}>
@@ -26,9 +25,9 @@ const AddLocationDialog = ({isOpen, actions}) => {
 			<div className='alert-dialog-content'>
 				<Input
 					modifier='underbar'
-					ref={node => input = node}
+					ref={node => (input = node)}
 					placeholder='Location name' float
-				 />
+        />
 			</div>
 			<div className='alert-dialog-footer'>
 				<button onClick={actions.closeDialog} className='alert-dialog-button'>

@@ -4,9 +4,9 @@ import locations from './locations';
 import dialog from './dialog';
 
 const todoApp = combineReducers({
-	locations,
+  locations,
   selectedLocation,
   dialog
-})
+});
 
-export default todoApp
+export default todoApp;

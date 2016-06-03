@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import Location from '../components/Location'
+import Location from '../components/Location';
 
 import * as Actions from '../actions';
 

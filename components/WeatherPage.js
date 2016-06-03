@@ -3,12 +3,10 @@ import {countries} from 'country-data';
 
 import {
   Page,
-  Toolbar,
   ProgressCircular
 } from 'react-onsenui';
 
 import NavBar from './NavBar';
-import Flag from './Flag';
 import WeatherIcon from './WeatherIcon';
 
 const WeatherPage = ({navigator, name, temperature, humidity, country, icon, isFetching, isInvalid}) => {
@@ -18,13 +16,11 @@ const WeatherPage = ({navigator, name, temperature, humidity, country, icon, isF
     content = (
       <div style={{color: 'red', fontSize: '40px'}}>Unable to fetch data!</div>
     );
-  }
-  else if (isFetching) {
+  } else if (isFetching) {
     content = (
       <ProgressCircular style={{width: '100px', height: '100px'}} indeterminate />
     );
-  }
-  else {
+  } else {
     content = (
       <div style={{
         opacity: 0.8

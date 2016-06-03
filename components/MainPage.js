@@ -1,9 +1,7 @@
 import React from 'react';
 
 import {
-  Page,
-  Toolbar,
-  Fab
+  Page
 } from 'react-onsenui';
 
 import NavBar from './NavBar';

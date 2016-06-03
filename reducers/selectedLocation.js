@@ -3,7 +3,7 @@ const selectedLocation = (state = null, action) => {
     case 'SELECT_LOCATION':
       return action.id;
     default:
-      return state
+      return state;
   }
 };
 

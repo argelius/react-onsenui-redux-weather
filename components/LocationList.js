@@ -1,5 +1,5 @@
-import React, {PropTypes} from 'react'
-import Location from '../containers/Location'
+import React, {PropTypes} from 'react';
+import Location from '../containers/Location';
 
 import {List} from 'react-onsenui';
 
@@ -23,4 +23,4 @@ LocationList.propTypes = {
   }).isRequired).isRequired
 };
 
-export default LocationList
+export default LocationList;

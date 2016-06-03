@@ -7,35 +7,33 @@ import AddLocationDialog from '../containers/AddLocationDialog';
 import {
   Fab,
   Icon,
-  Button,
-  Dialog
+  Button
 } from 'react-onsenui';
 
 const AddLocation = ({actions}) => {
-	let button;
+  let button;
 
-	if (platform.isAndroid()) {
-		button = (
-			<Fab
-        onClick={actions.openDialog}
-				ripple
-				position='bottom right'>
-				<Icon icon='md-plus' />
-			</Fab>
-		);
-	}
-	else {
-		button = (
-			<Button onClick={actions.openDialog} modifier='large quiet'>Add location</Button>
-		);
-	}
+  if (platform.isAndroid()) {
+    button = (
+      <Fab
+      onClick={actions.openDialog}
+      ripple
+      position='bottom right'>
+      <Icon icon='md-plus' />
+      </Fab>
+    );
+  } else {
+    button = (
+      <Button onClick={actions.openDialog} modifier='large quiet'>Add location</Button>
+    );
+  }
 
-	return (
-		<div>
-			{button}
-      <AddLocationDialog />
-		</div>
-	);
+  return (
+    <div>
+    {button}
+    <AddLocationDialog />
+    </div>
+  );
 };
 
 export default AddLocation;

@@ -1,8 +1,7 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import AddLocation from '../components/AddLocation'
-
+import AddLocation from '../components/AddLocation';
 import * as Actions from '../actions';
 
 const mapDispatchToProps = (dispatch) => {

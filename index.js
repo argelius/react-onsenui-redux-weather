@@ -22,7 +22,7 @@ const store = createStore(weatherApp,
   window.devToolsExtension ? window.devToolsExtension() : f => f,
   process.NODE_ENV === 'production'
     ? applyMiddleware(thunk)
-    : applyMiddleware(thunk, logger),
+    : applyMiddleware(thunk, logger)
 );
 
 import {addLocationAndFetchWeather} from './actions';
