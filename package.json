@@ -1,7 +1,7 @@
 {
-  "name": "react-onsenui-routing",
+  "name": "react-onsenui-redux-weather",
   "version": "1.0.0",
-  "description": "Onsen UI React Components with react-router",
+  "description": "Simple Weather App implemntation with Onsen UI React Components and Redux",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --progress",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/argelius/react-onsenui-routing.git"
+    "url": "git+https://github.com/argelius/react-onsenui-redux-weather.git"
   },
   "author": "Andreas Argelius <andreas@argeli.us>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/argelius/react-onsenui-routing/issues"
+    "url": "https://github.com/argelius/react-onsenui-redux-weather/issues"
   },
-  "homepage": "https://github.com/argelius/react-onsenui-routing#readme",
+  "homepage": "https://github.com/argelius/react-onsenui-redux-weather#readme",
   "devDependencies": {
     "babel-core": "^6.9.1",
     "babel-loader": "^6.2.4",

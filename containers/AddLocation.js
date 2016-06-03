@@ -1,14 +1,48 @@
+import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import AddLocation from '../components/AddLocation';
-import * as Actions from '../actions';
+import {platform} from 'onsenui';
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    actions: bindActionCreators(Actions, dispatch)
-  };
+import * as Actions from '../actions';
+import AddLocationDialog from './AddLocationDialog';
+
+import {
+  Fab,
+  Icon,
+  Button
+} from 'react-onsenui';
+
+const AddLocation = ({actions}) => {
+  let button;
+
+  if (platform.isAndroid()) {
+    button = (
+      <Fab
+      onClick={actions.openDialog}
+      ripple
+      position='bottom right'>
+      <Icon icon='md-plus' />
+      </Fab>
+    );
+  } else {
+    button = (
+      <Button onClick={actions.openDialog} modifier='large quiet'>Add location</Button>
+    );
+  }
+
+  return (
+    <div>
+    {button}
+    <AddLocationDialog />
+    </div>
+  );
 };
+
+
+const mapDispatchToProps = (dispatch) => ({
+  actions: bindActionCreators(Actions, dispatch)
+});
 
 export default connect(
   undefined,
