@@ -55,10 +55,8 @@ export const fetchWeather = (id) => {
 
     dispatch(requestWeather(id));
     queryWeather(name)
-      .then(
-        data => dispatch(receiveWeather(id, data)),
-        error => dispatch(setFetchError(id, error))
-      );
+      .catch(() => dispatch(setFetchError(id)))
+      .then((data) => dispatch(receiveWeather(id, data)));
   };
 };
 
