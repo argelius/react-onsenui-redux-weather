@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 import {platform} from 'onsenui';
-import {ListItem} from 'react-onsenui';
+import {ListItem, Icon} from 'react-onsenui';
 
 import * as Actions from '../actions';
 import WeatherPage from './WeatherPage';
@@ -75,18 +75,18 @@ const Location = ({
           {subtitle}
         </div>
       </div>
-      <div className='right'>
+      <div className='right' style={{fontSize: '20px'}}>
         <div onClick={(e) => {
           e.stopPropagation();
           actions.fetchWeather(id);
-        }} className='list__item__label'>
-          Refresh
+        }}>
+          <Icon icon='ion-refresh' style={{margin: '0 10px'}} />
         </div>
         <div onClick={(e) => {
           e.stopPropagation();
           actions.removeLocation(id);
-        }} className='list__item__label'>
-          Remove
+        }}>
+          <Icon icon='ion-ios-trash' style={{margin: '0 10px 0 0'}} />
         </div>
       </div>
     </ListItem>
