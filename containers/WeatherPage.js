@@ -83,7 +83,6 @@ const WeatherPage = ({
   );
 };
 
-
 const mapStateToProps = (state) => ({
   ...state.locations[state.selectedLocation]
 });

@@ -93,7 +93,6 @@ const Location = ({
   );
 };
 
-
 export default connect(
   undefined,
   mapDispatchToProps

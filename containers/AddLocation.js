@@ -39,7 +39,6 @@ const AddLocation = ({actions}) => {
   );
 };
 
-
 const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators(Actions, dispatch)
 });
