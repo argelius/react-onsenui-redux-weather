@@ -5,6 +5,7 @@ module.exports = {
   devtool: 'eval-source-map',
   context: __dirname,
   entry: [
+    'react-hot-loader/patch',
     'webpack-dev-server/client?http://0.0.0.0:9000',
     'webpack/hot/only-dev-server',
     './index.js'
@@ -39,12 +40,14 @@ module.exports = {
         test: /\.css$/,
         loader: 'style!css'
       },
-      { test: /\.js$|\.jsx$/,
-        exclude: [/node_modules/],
-        loaders: [
-          'react-hot',
-          'babel?' + JSON.stringify({presets: ['stage-2', 'es2015', 'react']})
-        ]
+      {
+        test: /\.js$/,
+        loader: 'babel',
+        query: {
+          'presets': ['es2015', 'stage-2', 'react'],
+          'plugins': ['react-hot-loader/babel']
+        },
+        exclude: path.join(__dirname, 'node_modules')
       }
     ]
   },
