@@ -11,29 +11,21 @@ const extreme = '#ee5850';
 export const weatherCodeToColor = (code) => {
   if (code >= 200 && code < 300) {
     return thunder;
-  }
-  else if (code >= 300 && code < 400) {
+  } else if (code >= 300 && code < 400) {
     return rain;
-  }
-  else if (code >= 500 && code < 600) {
+  } else if (code >= 500 && code < 600) {
     return rain;
-  }
-  else if (code >= 600 && code < 700) {
+  } else if (code >= 600 && code < 700) {
     return snow;
-  }
-  else if (code >= 700 && code < 800) {
+  } else if (code >= 700 && code < 800) {
     return mist;
-  }
-  else if (code === 800) {
+  } else if (code === 800) {
     return clear;
-  }
-  else if (code >= 801 && code < 810) {
+  } else if (code >= 801 && code < 810) {
     return clouds;
-  }
-  else if (code >= 900 && code < 903) {
+  } else if (code >= 900 && code < 903) {
     return extreme;
-  }
-  else {
+  } else {
     return clear;
   }
 };
