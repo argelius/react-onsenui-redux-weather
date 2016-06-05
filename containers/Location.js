@@ -7,6 +7,7 @@ import {ListItem, Icon} from 'react-onsenui';
 import * as Actions from '../actions';
 import WeatherPage from './WeatherPage';
 import WeatherIcon from '../components/WeatherIcon';
+import {weatherCodeToColor} from '../util';
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -47,7 +48,7 @@ const Location = ({
     );
   }
 
-  const weatherColor = '#62cbf4';
+  const weatherColor = weatherCodeToColor(icon);
 
   return (
     <ListItem onClick={() => {

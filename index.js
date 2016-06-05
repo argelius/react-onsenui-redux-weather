@@ -10,11 +10,11 @@ import {AppContainer} from 'react-hot-loader';
 import weatherApp from './reducers';
 import App from './components/App';
 
+import './icons/css/weather-icons.css';
+
 import 'onsenui';
 import 'onsenui/css/onsenui.css';
 import './stylus/index.styl';
-
-import './icons/css/weather-icons.css';
 
 const logger = createLogger();
 

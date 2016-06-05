@@ -11,6 +11,7 @@ import {
 
 import NavBar from '../components/NavBar';
 import WeatherIcon from '../components/WeatherIcon';
+import {weatherCodeToColor} from '../util';
 
 const WeatherPage = ({
   navigator,
@@ -24,7 +25,7 @@ const WeatherPage = ({
 }) => {
   let content;
 
-  const weatherColor = '#62cbf4';
+  const weatherColor = weatherCodeToColor(icon);
 
   if (isInvalid) {
     content = (
