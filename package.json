@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --progress",
-    "build": "npm run lint && cross-env NODE_ENV=production webpack --config webpack.config.prod.js && echo hi && ncp index.html dist/index.html",
+    "build": "npm run lint && cross-env NODE_ENV=production webpack --config webpack.config.prod.js && ncp index.html dist/index.html",
     "deploy": "npm run build && git commit dist -m \"Deploy\" && git push origin master && git subtree push --prefix dist origin gh-pages",
     "lint": "eslint ."
   },
