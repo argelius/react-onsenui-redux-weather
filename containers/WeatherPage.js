@@ -11,6 +11,7 @@ import {
 
 import NavBar from '../components/NavBar';
 import WeatherIcon from '../components/WeatherIcon';
+import Forecast from '../components/Forecast';
 import {weatherCodeToColor} from '../util';
 
 const WeatherPage = ({
@@ -20,6 +21,7 @@ const WeatherPage = ({
   humidity,
   country,
   icon,
+  forecast,
   isFetching,
   isInvalid
 }) => {
@@ -68,7 +70,7 @@ const WeatherPage = ({
           fontSize: '40px',
           fontWeight: 300,
           display: 'flex',
-          margin: '40px 25px'
+          margin: '50px 25px'
         }}>
           <div style={{
             flexGrow: 1,
@@ -101,6 +103,8 @@ const WeatherPage = ({
             </div>
           </div>
         </div>
+
+        <Forecast days={forecast} />
       </div>
     );
   }
