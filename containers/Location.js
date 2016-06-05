@@ -42,13 +42,8 @@ const Location = ({
   } else {
     subtitle = (
       <span>
-        <span style={{display: 'inline-block', width: '16px'}}>
-          🌡
-        </span>
-        {temperature}&#x2103;&nbsp;
-        <span style={{display: 'inline-block', width: '16px'}}>
-          ☔
-        </span>{humidity}%
+        {temperature}&deg;C&nbsp;
+        <Icon icon='umbrella' />{humidity}%
       </span>
     );
   }
@@ -59,10 +54,10 @@ const Location = ({
       navigator.pushPage({component: WeatherPage});
     }} tappable>
       <div className='left'>
-        <WeatherIcon icon={icon} />
+        <WeatherIcon className='weather-icon' icon={icon} />
       </div>
       <div className='center'>
-        <div className='list__item__title'>
+        <div style={{textTransform: 'uppercase'}} className='list__item__title'>
           {name}
         </div>
         <div className='list__item__subtitle'>
@@ -74,13 +69,13 @@ const Location = ({
           e.stopPropagation();
           actions.fetchWeather(id);
         }}>
-          <Icon icon='refresh' style={{margin: '0 25px 0 0'}} />
+          <Icon icon='refresh' className='weather-button' style={{margin: '0 25px 0 0'}} />
         </div>
         <div onClick={(e) => {
           e.stopPropagation();
           actions.removeLocation(id);
         }}>
-          <Icon icon='trash' style={{margin: '0 10px 0 0'}} />
+          <Icon icon='trash' className='weather-button' style={{margin: '0 10px 0 0'}} />
         </div>
       </div>
     </ListItem>

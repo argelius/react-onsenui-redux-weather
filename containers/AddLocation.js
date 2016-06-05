@@ -27,7 +27,7 @@ const AddLocation = ({actions}) => {
     );
   } else {
     button = (
-      <Button onClick={actions.openDialog} modifier='large quiet'>Add location</Button>
+      <Button onClick={actions.openDialog} modifier='large quiet'>+ ADD LOCATION</Button>
     );
   }
 
