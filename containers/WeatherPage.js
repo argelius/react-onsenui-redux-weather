@@ -59,7 +59,7 @@ const WeatherPage = ({
         <div style={{
           fontSize: '180px',
           color: weatherColor,
-          margin: '20px 0 30px 0'
+          margin: '20px 0'
         }}>
           <WeatherIcon icon={icon} />
         </div>
@@ -110,7 +110,7 @@ const WeatherPage = ({
       <div style={{
         textAlign: 'center',
         color: '#4a4a4a',
-        margin: '100px 0 0 0'
+        margin: '30px 0 0 0'
       }}>
       {content}
       </div>
