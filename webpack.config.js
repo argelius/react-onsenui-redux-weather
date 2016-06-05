@@ -1,6 +1,8 @@
 var webpack = require('webpack');
 var path = require('path');
 
+var autoprefixer = require('autoprefixer');
+
 module.exports = {
   devtool: 'eval-source-map',
   context: __dirname,
@@ -38,11 +40,11 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: 'style!css'
+        loader: 'style!css!postcss'
       },
       {
         test: /\.styl$/,
-        loader: 'style!css!stylus?paths=node_modules'
+        loader: 'style!css!postcss!stylus?paths=node_modules'
       },
       {
         test: /\.js$/,
@@ -54,6 +56,10 @@ module.exports = {
         exclude: path.join(__dirname, 'node_modules')
       }
     ]
+  },
+
+  postcss: function() {
+    return [autoprefixer]
   },
 
   plugins: [

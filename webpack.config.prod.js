@@ -27,11 +27,11 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: 'style!css'
+        loader: 'style!css!postcss'
       },
       {
         test: /\.styl$/,
-        loader: 'style!css!stylus?paths=node_modules'
+        loader: 'style!css!postcss!stylus?paths=node_modules'
       },
       { test: /\.js$|\.jsx$/,
         exclude: [/node_modules/],
@@ -40,6 +40,10 @@ module.exports = {
         ]
       }
     ]
+  },
+
+  postcss: function() {
+    return [precss, autoprefixer]
   },
 
   plugins: [
