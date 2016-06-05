@@ -15,7 +15,6 @@ import 'onsenui/css/onsenui.css';
 import './stylus/index.styl';
 
 import './icons/css/weather-icons.css';
-import 'flag-icon-css/css/flag-icon.css';
 
 const logger = createLogger();
 

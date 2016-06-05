@@ -2,6 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {countries} from 'country-data';
 
+import {platform} from 'onsenui';
+
 import {
   Page,
   ProgressCircular
@@ -22,35 +24,40 @@ const WeatherPage = ({
 }) => {
   let content;
 
+  const weatherColor = '#62cbf4';
+
   if (isInvalid) {
     content = (
       <div style={{color: 'red', fontSize: '40px'}}>Unable to fetch data!</div>
     );
   } else if (isFetching) {
     content = (
-      <ProgressCircular style={{width: '100px', height: '100px'}} indeterminate />
+      <ProgressCircular style={{margin: '100px 0 0 0', width: '100px', height: '100px'}} indeterminate />
     );
   } else {
     content = (
       <div style={{
-        opacity: 0.8
+        fontFamily: platform.isIOS() ? 'Lato' : null
       }}>
         <div style={{
           textTransform: 'uppercase',
-          fontSize: '40px'
+          fontSize: '24px',
+          lineHeight: '24px'
         }}>
           {name}
         </div>
         <div style={{
-          margin: '0 0 0 0',
+          margin: '2px 0 0 0',
           textTransform: 'uppercase',
-          fontSize: '22px'
+          fontSize: '12px',
+          lineHeight: '12px'
         }}>
           {countries[country.toUpperCase()].name}
         </div>
 
         <div style={{
-          fontSize: '100px',
+          fontSize: '180px',
+          color: weatherColor,
           margin: '20px 0 30px 0'
         }}>
           <WeatherIcon icon={icon} />
@@ -58,11 +65,40 @@ const WeatherPage = ({
 
         <div style={{
           fontSize: '40px',
-          margin: '10px 0 0 0'
+          fontWeight: 300,
+          display: 'flex',
+          margin: '40px 25px'
         }}>
-          <span>{temperature}&deg;C</span>
-          &nbsp;
-          <span>{humidity}%</span>
+          <div style={{
+            flexGrow: 1,
+            display: 'flex',
+            flexDirection: 'column'
+          }}>
+            <div style={{fontSize: '60px'}}>
+              {temperature}&deg;
+            </div>
+            <div style={{
+              fontSize: '14px',
+              fontWeight: 400
+            }}>
+              TEMPERATURE
+            </div>
+          </div>
+          <div style={{
+            flexGrow: 1,
+            display: 'flex',
+            flexDirection: 'column'
+          }}>
+            <div style={{fontSize: '60px'}}>
+              {humidity}%
+            </div>
+            <div style={{
+              fontSize: '14px',
+              fontWeight: 400
+            }}>
+              HUMIDITY
+            </div>
+          </div>
         </div>
       </div>
     );
@@ -72,10 +108,8 @@ const WeatherPage = ({
     <Page renderToolbar={() => <NavBar backButton={true} title={`Weather in ${name}`} navigator={navigator} />}>
       <div style={{
         textAlign: 'center',
-        position: 'absolute',
-        top: '50%',
-        width: '100%',
-        transform: 'translate3d(0, -50%, 0)'
+        color: '#4a4a4a',
+        margin: '100px 0 0 0'
       }}>
       {content}
       </div>

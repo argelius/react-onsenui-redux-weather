@@ -2,7 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import {platform} from 'onsenui';
 import {ListItem, Icon} from 'react-onsenui';
 
 import * as Actions from '../actions';
@@ -43,10 +42,12 @@ const Location = ({
     subtitle = (
       <span>
         {temperature}&deg;C&nbsp;
-        <Icon icon='umbrella' />{humidity}%
+        {humidity}%
       </span>
     );
   }
+
+  const weatherColor = '#62cbf4';
 
   return (
     <ListItem onClick={() => {
@@ -54,10 +55,16 @@ const Location = ({
       navigator.pushPage({component: WeatherPage});
     }} tappable>
       <div className='left'>
-        <WeatherIcon className='weather-icon' icon={icon} />
+        <WeatherIcon style={{
+          backgroundColor: weatherColor,
+          color: '#fff',
+          padding: '7px 6px',
+          borderRadius: '6px',
+          fontSize: '14px'
+        }} icon={icon} />
       </div>
       <div className='center'>
-        <div style={{textTransform: 'uppercase'}} className='list__item__title'>
+        <div className='list__item__title'>
           {name}
         </div>
         <div className='list__item__subtitle'>

@@ -26,7 +26,7 @@ export const queryWeather = (city) => {
       }
 
       return {
-        temperature: round(kelvinToCelsius(json.main.temp), 1),
+        temperature: round(kelvinToCelsius(json.main.temp), 0),
         humidity: json.main.humidity,
         icon: json.weather[0].id,
         name: json.name,
