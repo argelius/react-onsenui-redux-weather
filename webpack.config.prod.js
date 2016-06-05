@@ -29,6 +29,10 @@ module.exports = {
         test: /\.css$/,
         loader: 'style!css'
       },
+      {
+        test: /\.styl$/,
+        loader: 'style!css!stylus?paths=node_modules'
+      },
       { test: /\.js$|\.jsx$/,
         exclude: [/node_modules/],
         loaders: [

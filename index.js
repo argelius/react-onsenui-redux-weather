@@ -12,7 +12,7 @@ import App from './components/App';
 
 import 'onsenui';
 import 'onsenui/css/onsenui.css';
-import 'onsenui/css/onsen-css-components.css';
+import './stylus/index.styl';
 
 import './icons/css/weather-icons.css';
 import 'flag-icon-css/css/flag-icon.css';

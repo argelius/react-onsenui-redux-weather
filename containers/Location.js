@@ -7,7 +7,6 @@ import {ListItem, Icon} from 'react-onsenui';
 
 import * as Actions from '../actions';
 import WeatherPage from './WeatherPage';
-import Flag from '../components/Flag';
 import WeatherIcon from '../components/WeatherIcon';
 
 const mapDispatchToProps = (dispatch) => {
@@ -54,39 +53,34 @@ const Location = ({
     );
   }
 
-  let flag = country
-    ? <Flag style={{marginRight: '6px'}} country={country} />
-    : null;
-
   return (
     <ListItem onClick={() => {
       actions.selectLocation(id);
       navigator.pushPage({component: WeatherPage});
     }} tappable>
       <div className='left'>
-        <WeatherIcon style={platform.isAndroid() ? {fontSize: '22px'} : null} icon={icon} />
+        <WeatherIcon icon={icon} />
       </div>
       <div className='center'>
         <div className='list__item__title'>
-          {flag}
           {name}
         </div>
         <div className='list__item__subtitle'>
           {subtitle}
         </div>
       </div>
-      <div className='right' style={{fontSize: '20px'}}>
+      <div className='right' style={{fontSize: '20px', color: '#cacaca'}}>
         <div onClick={(e) => {
           e.stopPropagation();
           actions.fetchWeather(id);
         }}>
-          <Icon icon='ion-refresh' style={{margin: '0 10px'}} />
+          <Icon icon='refresh' style={{margin: '0 25px 0 0'}} />
         </div>
         <div onClick={(e) => {
           e.stopPropagation();
           actions.removeLocation(id);
         }}>
-          <Icon icon='ion-ios-trash' style={{margin: '0 10px 0 0'}} />
+          <Icon icon='trash' style={{margin: '0 10px 0 0'}} />
         </div>
       </div>
     </ListItem>

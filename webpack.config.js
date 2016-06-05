@@ -41,6 +41,10 @@ module.exports = {
         loader: 'style!css'
       },
       {
+        test: /\.styl$/,
+        loader: 'style!css!stylus?paths=node_modules'
+      },
+      {
         test: /\.js$/,
         loader: 'babel',
         query: {
