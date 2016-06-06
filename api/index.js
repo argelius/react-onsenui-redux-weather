@@ -52,8 +52,8 @@ export const queryWeather = (city) => {
         forecast: json.list.map((d) => ({
           weekday: (new Date(d.dt * 1000)).getDay(),
           icon: d.weather[0].id,
-          max_temp: round(kelvinToCelsius(d.temp.max), 0),
-          min_temp: round(kelvinToCelsius(d.temp.min), 0)
+          maxTemp: round(kelvinToCelsius(d.temp.max), 0),
+          minTemp: round(kelvinToCelsius(d.temp.min), 0)
         }))
       };
     });
