@@ -78,7 +78,7 @@ const WeatherPage = ({
             flexDirection: 'column'
           }}>
             <div style={{fontSize: '60px'}}>
-              {temperature}&deg;
+              {temperature}
             </div>
             <div style={{
               fontSize: '14px',
@@ -93,7 +93,7 @@ const WeatherPage = ({
             flexDirection: 'column'
           }}>
             <div style={{fontSize: '60px'}}>
-              {humidity}%
+              {humidity}
             </div>
             <div style={{
               fontSize: '14px',

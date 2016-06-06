@@ -4,6 +4,8 @@ import {bindActionCreators} from 'redux';
 
 import {ListItem, Icon} from 'react-onsenui';
 
+import {platform} from 'onsenui';
+
 import * as Actions from '../actions';
 import WeatherPage from './WeatherPage';
 import WeatherIcon from '../components/WeatherIcon';
@@ -56,13 +58,18 @@ const Location = ({
       navigator.pushPage({component: WeatherPage});
     }} tappable>
       <div className='left'>
-        <WeatherIcon style={{
+        <div style={{
           backgroundColor: weatherColor,
           color: '#fff',
-          padding: '7px 6px',
+          textAlign: 'center',
+          width: platform.isAndroid() ? '36px' : '30px',
+          height: platform.isAndroid() ? '36px' : '30px',
+          lineHeight: platform.isAndroid() ? '36px' : '30px',
           borderRadius: '6px',
-          fontSize: '14px'
-        }} icon={icon} />
+          fontSize: platform.isAndroid() ? '16px' : '14px'
+        }}>
+          <WeatherIcon icon={icon} />
+        </div>
       </div>
       <div className='center'>
         <div className='list__item__title'>
