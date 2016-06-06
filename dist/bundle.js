@@ -22063,7 +22063,7 @@
 	  isFetching: false,
 	  isInvalid: false,
 	  temperature: 0,
-	  icon: 800,
+	  icon: -1,
 	  humidity: 0
 	};
 	
@@ -28329,7 +28329,7 @@
 	            borderRadius: '6px',
 	            fontSize: _onsenui.platform.isAndroid() ? '16px' : '14px'
 	          } },
-	        _react2.default.createElement(_WeatherIcon2.default, { icon: icon })
+	        icon < 0 ? '?' : _react2.default.createElement(_WeatherIcon2.default, { icon: icon })
 	      )
 	    ),
 	    _react2.default.createElement(
@@ -52767,9 +52767,9 @@
 	      _react2.default.createElement(
 	        'div',
 	        { style: {
-	            fontSize: '180px',
+	            fontSize: '100px',
 	            color: weatherColor,
-	            margin: '20px 0'
+	            margin: '20px 0 0px 0'
 	          } },
 	        _react2.default.createElement(_WeatherIcon2.default, { icon: icon })
 	      ),
@@ -52779,7 +52779,7 @@
 	            fontSize: '40px',
 	            fontWeight: 300,
 	            display: 'flex',
-	            margin: '50px 25px'
+	            margin: '40px 25px'
 	          } },
 	        _react2.default.createElement(
 	          'div',
@@ -52791,7 +52791,8 @@
 	          _react2.default.createElement(
 	            'div',
 	            { style: { fontSize: '60px' } },
-	            temperature
+	            temperature,
+	            '°'
 	          ),
 	          _react2.default.createElement(
 	            'div',
@@ -52812,7 +52813,8 @@
 	          _react2.default.createElement(
 	            'div',
 	            { style: { fontSize: '60px' } },
-	            humidity
+	            humidity,
+	            '%'
 	          ),
 	          _react2.default.createElement(
 	            'div',
@@ -52838,7 +52840,10 @@
 	      { style: {
 	          textAlign: 'center',
 	          color: '#4a4a4a',
-	          margin: '30px 0 0 0'
+	          width: '100%',
+	          position: 'absolute',
+	          top: '50%',
+	          transform: 'translate3d(0, -50%, 0)'
 	        } },
 	      content
 	    )
@@ -63996,7 +64001,7 @@
 	
 	      return _react2.default.createElement(
 	        'div',
-	        { style: {
+	        { key: weekday, style: {
 	            flexGrow: 1
 	          } },
 	        _react2.default.createElement(
@@ -64027,16 +64032,19 @@
 	                margin: '6px 0 0 0',
 	                fontSize: '12px'
 	              } },
-	            max_temp
+	            max_temp,
+	            '°C'
 	          ),
 	          _react2.default.createElement(
 	            'div',
 	            { style: {
 	                opacity: 0.6,
 	                margin: '2px 0 0 0',
+	                fontWeight: 200,
 	                fontSize: '12px'
 	              } },
-	            min_temp
+	            min_temp,
+	            '°C'
 	          )
 	        )
 	      );
@@ -64057,33 +64065,35 @@
 	});
 	// http://openweathermap.org/weather-conditions
 	
-	var thunder = '#b8d74b';
-	var rain = '#3690f3';
-	var snow = '#61c9f2';
-	var mist = '#1199c0';
-	var clear = '#f7d346';
-	var clouds = '#94a8bd';
-	var extreme = '#ee5850';
+	var THUNDER = '#b8d74b';
+	var RAIN = '#3690f3';
+	var SNOW = '#61c9f2';
+	var MIST = '#1199c0';
+	var CLEAR = '#f7d346';
+	var CLOUDS = '#94a8bd';
+	var EXTREME = '#ee5850';
 	
 	var weatherCodeToColor = exports.weatherCodeToColor = function weatherCodeToColor(code) {
-	  if (code >= 200 && code < 300) {
-	    return thunder;
+	  if (code < 0) {
+	    return CLOUDS;
+	  } else if (code >= 200 && code < 300) {
+	    return THUNDER;
 	  } else if (code >= 300 && code < 400) {
-	    return rain;
+	    return RAIN;
 	  } else if (code >= 500 && code < 600) {
-	    return rain;
+	    return RAIN;
 	  } else if (code >= 600 && code < 700) {
-	    return snow;
+	    return SNOW;
 	  } else if (code >= 700 && code < 800) {
-	    return mist;
+	    return MIST;
 	  } else if (code === 800) {
-	    return clear;
+	    return CLEAR;
 	  } else if (code >= 801 && code < 810) {
-	    return clouds;
+	    return CLOUDS;
 	  } else if (code >= 900 && code < 903) {
-	    return extreme;
+	    return EXTREME;
 	  } else {
-	    return clear;
+	    return CLEAR;
 	  }
 	};
 
