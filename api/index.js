@@ -1,9 +1,10 @@
-import fetch from 'fetch-jsonp';
+import fetch from 'isomorphic-fetch';
 import Promise from 'promise';
 
 const API_KEY = '5a043a1bd95bf3ee500eb89de107b41e';
 const API_URL = 'http://api.openweathermap.org/data/2.5';
-const TIMEOUT = 20000;
+
+// http://api.openweathermap.org/data/2.5/forecast/daily?id=524901&cnt=5&appid=5a043a1bd95bf3ee500eb89de107b41e
 
 const kelvinToCelsius = (kelvin) => kelvin - 273.15;
 
@@ -13,8 +14,14 @@ const round = (value, decimals = 1) => {
 };
 
 const apiCall = (url) => {
-  return fetch(url, {timeout: TIMEOUT})
-    .then(response => response.json())
+  return fetch(url)
+    .then(response => {
+      if (response.status >= 400) {
+        return Promise.reject('Invalid response');
+      }
+
+      return response.json();
+    })
     .then(json => {
       if (parseInt(json.cod) !== 200) {
         return Promise.reject('Invalid response');
