@@ -43,7 +43,7 @@
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "react-hot-loader": "^3.0.0-beta.2",
-    "react-onsenui": "^0.2.21",
+    "react-onsenui": "^0.2.22",
     "react-redux": "^4.4.5",
     "redux": "^3.5.2",
     "redux-logger": "^2.6.1",

@@ -11,10 +11,26 @@ import WeatherPage from './WeatherPage';
 import WeatherIcon from '../components/WeatherIcon';
 import {weatherCodeToColor} from '../util';
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    actions: bindActionCreators(Actions, dispatch)
-  };
+const styles = {
+  weatherIcon: {
+    color: '#fff',
+    textAlign: 'center',
+    width: platform.isAndroid() ? '36px' : '30px',
+    height: platform.isAndroid() ? '36px' : '30px',
+    lineHeight: platform.isAndroid() ? '36px' : '30px',
+    borderRadius: '6px',
+    fontSize: platform.isAndroid() ? '16px' : '14px'
+  },
+  buttons: {
+    fontSize: '20px',
+    color: '#cacaca'
+  },
+  refreshButton: {
+    margin: '0 25px 0 0'
+  },
+  removeButton: {
+    margin: '0 10px 0 0'
+  }
 };
 
 const Location = ({
@@ -58,16 +74,7 @@ const Location = ({
       navigator.pushPage({component: WeatherPage});
     }} tappable>
       <div className='left'>
-        <div style={{
-          backgroundColor: weatherColor,
-          color: '#fff',
-          textAlign: 'center',
-          width: platform.isAndroid() ? '36px' : '30px',
-          height: platform.isAndroid() ? '36px' : '30px',
-          lineHeight: platform.isAndroid() ? '36px' : '30px',
-          borderRadius: '6px',
-          fontSize: platform.isAndroid() ? '16px' : '14px'
-        }}>
+        <div style={{...styles.weatherIcon, backgroundColor: weatherColor}}>
           {icon < 0 ? '?' : <WeatherIcon icon={icon} />}
         </div>
       </div>
@@ -79,22 +86,28 @@ const Location = ({
           {subtitle}
         </div>
       </div>
-      <div className='right' style={{fontSize: '20px', color: '#cacaca'}}>
+      <div className='right' style={styles.buttons}>
         <div onClick={(e) => {
           e.stopPropagation();
           actions.fetchWeather(id);
         }}>
-          <Icon icon='refresh' className='weather-button' style={{margin: '0 25px 0 0'}} />
+          <Icon icon='refresh' className='weather-button' style={styles.refreshButton} className={isFetching ? 'spin-animation' : ''} />
         </div>
         <div onClick={(e) => {
           e.stopPropagation();
           actions.removeLocation(id);
         }}>
-          <Icon icon='trash' className='weather-button' style={{margin: '0 10px 0 0'}} />
+          <Icon icon='trash' className='weather-button' style={styles.removeButton} />
         </div>
       </div>
     </ListItem>
   );
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    actions: bindActionCreators(Actions, dispatch)
+  };
 };
 
 export default connect(

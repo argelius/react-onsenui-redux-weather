@@ -38,6 +38,7 @@ const location = (state = initialState, action) => {
     case SET_FETCH_ERROR:
       return {
         ...state,
+        isFetching: false,
         isInvalid: true
       };
     default:

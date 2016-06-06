@@ -80,3 +80,12 @@ $fab-background-color = #13bde2
 
 .wi-owm-701:before
   content "\f014"
+
+@keyframes spin
+  from
+    transform rotate(0deg)
+  to
+    transform rotate(360deg)
+
+.spin-animation
+  animation spin 0.5s linear infinite
