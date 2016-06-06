@@ -32,6 +32,7 @@ import {addLocationAndFetchWeather} from './actions';
   'New York',
   'Paris',
   'Beijing',
+  'Nairobi',
   'Sydney',
   'Buenos Aires'
 ].forEach((city) => store.dispatch(addLocationAndFetchWeather(city)));
