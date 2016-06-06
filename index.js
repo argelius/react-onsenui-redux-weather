@@ -20,7 +20,7 @@ const logger = createLogger();
 
 const store = createStore(weatherApp,
   window.devToolsExtension ? window.devToolsExtension() : f => f,
-  process.NODE_ENV === 'production'
+  process.env.NODE_ENV === 'production'
     ? applyMiddleware(thunk)
     : applyMiddleware(thunk, logger)
 );
