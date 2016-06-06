@@ -68,7 +68,7 @@ const Location = ({
           borderRadius: '6px',
           fontSize: platform.isAndroid() ? '16px' : '14px'
         }}>
-          <WeatherIcon icon={icon} />
+          {icon < 0 ? '?' : <WeatherIcon icon={icon} />}
         </div>
       </div>
       <div className='center'>

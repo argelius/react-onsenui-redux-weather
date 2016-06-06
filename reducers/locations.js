@@ -10,7 +10,7 @@ const initialState = {
   isFetching: false,
   isInvalid: false,
   temperature: 0,
-  icon: 800,
+  icon: -1,
   humidity: 0
 };
 

@@ -59,9 +59,9 @@ const WeatherPage = ({
         </div>
 
         <div style={{
-          fontSize: '180px',
+          fontSize: '100px',
           color: weatherColor,
-          margin: '20px 0'
+          margin: '20px 0 0px 0'
         }}>
           <WeatherIcon icon={icon} />
         </div>
@@ -70,7 +70,7 @@ const WeatherPage = ({
           fontSize: '40px',
           fontWeight: 300,
           display: 'flex',
-          margin: '50px 25px'
+          margin: '40px 25px'
         }}>
           <div style={{
             flexGrow: 1,
@@ -78,7 +78,7 @@ const WeatherPage = ({
             flexDirection: 'column'
           }}>
             <div style={{fontSize: '60px'}}>
-              {temperature}
+              {temperature}&deg;
             </div>
             <div style={{
               fontSize: '14px',
@@ -93,7 +93,7 @@ const WeatherPage = ({
             flexDirection: 'column'
           }}>
             <div style={{fontSize: '60px'}}>
-              {humidity}
+              {humidity}%
             </div>
             <div style={{
               fontSize: '14px',
@@ -114,7 +114,10 @@ const WeatherPage = ({
       <div style={{
         textAlign: 'center',
         color: '#4a4a4a',
-        margin: '30px 0 0 0'
+        width: '100%',
+        position: 'absolute',
+        top: '50%',
+        transform: 'translate3d(0, -50%, 0)'
       }}>
       {content}
       </div>

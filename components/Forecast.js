@@ -22,7 +22,7 @@ const Forecast = ({days}) => (
       const weatherColor = weatherCodeToColor(icon);
 
       return (
-        <div style={{
+        <div key={weekday} style={{
           flexGrow: 1
         }}>
           <div style={{
@@ -45,14 +45,15 @@ const Forecast = ({days}) => (
               margin: '6px 0 0 0',
               fontSize: '12px'
             }}>
-              {max_temp}
+              {max_temp}&deg;C
             </div>
             <div style={{
               opacity: 0.6,
               margin: '2px 0 0 0',
+              fontWeight: 200,
               fontSize: '12px'
             }}>
-              {min_temp}
+              {min_temp}&deg;C
             </div>
           </div>
         </div>
