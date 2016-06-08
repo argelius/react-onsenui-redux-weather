@@ -33,7 +33,7 @@ import {addLocationAndFetchWeather} from './actions';
   'Paris',
   'Beijing',
   'Sydney',
-  'São Paulo'
+  'Rio de Janeiro'
 ].forEach((city) => store.dispatch(addLocationAndFetchWeather(city)));
 
 const rootElement = document.getElementById('root');
