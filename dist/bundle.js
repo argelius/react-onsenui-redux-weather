@@ -83,7 +83,9 @@
 	
 	__webpack_require__(261);
 	
-	__webpack_require__(241);
+	var _onsenui = __webpack_require__(241);
+	
+	var _onsenui2 = _interopRequireDefault(_onsenui);
 	
 	__webpack_require__(270);
 	
@@ -105,15 +107,17 @@
 	
 	var rootElement = document.getElementById('root');
 	
-	(0, _reactDom.render)(_react2.default.createElement(
-	  _reactHotLoader.AppContainer,
-	  null,
-	  _react2.default.createElement(
-	    _reactRedux.Provider,
-	    { store: store },
-	    _react2.default.createElement(_App2.default, null)
-	  )
-	), rootElement);
+	_onsenui2.default.ready(function () {
+	  return (0, _reactDom.render)(_react2.default.createElement(
+	    _reactHotLoader.AppContainer,
+	    null,
+	    _react2.default.createElement(
+	      _reactRedux.Provider,
+	      { store: store },
+	      _react2.default.createElement(_App2.default, null)
+	    )
+	  ), rootElement);
+	});
 	
 	if (false) {
 	  module.hot.accept('./components/App', function () {
