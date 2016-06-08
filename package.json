@@ -37,6 +37,7 @@
     "isomorphic-fetch": "^2.2.1",
     "json-loader": "^0.5.4",
     "ncp": "^2.0.0",
+    "node-uuid": "^1.4.7",
     "onsenui": "^2.0.0-rc.9",
     "postcss-loader": "^0.9.1",
     "promise": "^7.1.1",

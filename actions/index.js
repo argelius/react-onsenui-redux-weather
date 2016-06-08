@@ -1,6 +1,6 @@
-import {queryWeather} from '../api';
+import {v4 as generateId} from 'node-uuid';
 
-let nextLocationId = 0;
+import {queryWeather} from '../api';
 
 export const ADD_LOCATION = 'ADD_LOCATION';
 export const REMOVE_LOCATION = 'REMOVE_LOCATION';
@@ -15,7 +15,7 @@ export const CLOSE_DIALOG = 'CLOSE_DIALOG';
 
 export const addLocation = (name) => ({
   type: ADD_LOCATION,
-  id: nextLocationId++,
+  id: generateId(),
   name
 });
 
