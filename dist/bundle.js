@@ -99,7 +99,7 @@
 	  return f;
 	},  true ? (0, _redux.applyMiddleware)(_reduxThunk2.default) : (0, _redux.applyMiddleware)(_reduxThunk2.default, logger));
 	
-	['Tokyo', 'New York', 'Paris', 'Beijing', 'Sydney', 'Sao Paolo'].forEach(function (city) {
+	['Tokyo', 'New York', 'Paris', 'Beijing', 'Sydney', 'São Paulo'].forEach(function (city) {
 	  return store.dispatch((0, _actions.addLocationAndFetchWeather)(city));
 	});
 	
