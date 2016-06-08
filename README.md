@@ -1,5 +1,7 @@
 # React Redux Weather
 
+![React Redux Weather](https://raw.githubusercontent.com/argelius/react-onsenui-redux-weather/master/react_redux_weather.png)
+
 Weather app using Onsen UI, Redux, React and Webpack.
 
 This app was built using [Onsen UI](https://onsen.io/), a hybrid app framework that provides both Material Design and iOS flat design. We recently released [React Components](https://onsen.io/v2/react.html).
