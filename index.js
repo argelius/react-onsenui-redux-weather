@@ -12,7 +12,7 @@ import App from './components/App';
 
 import './icons/css/weather-icons.css';
 
-import 'onsenui';
+import ons from 'onsenui';
 import 'onsenui/css/onsenui.css';
 import './stylus/index.styl';
 
@@ -38,14 +38,14 @@ import {addLocationAndFetchWeather} from './actions';
 
 const rootElement = document.getElementById('root');
 
-render(
+ons.ready(() => render(
   <AppContainer>
     <Provider store={store}>
       <App />
     </Provider>
   </AppContainer>,
   rootElement
-);
+));
 
 if (module.hot) {
   module.hot.accept('./components/App', () => {
