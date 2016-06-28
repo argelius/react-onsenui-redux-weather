@@ -18,3 +18,41 @@ npm start
 ```
 
 The app will run at [http://localhost:9000](http://localhost:9000).
+
+## How to build it
+
+You can build it using Cordova.
+
+- [Install Cordova](https://cordova.apache.org/docs/en/latest/guide/cli/index.html#installing-the-cordova-cli):
+
+```
+npm install -g cordova
+```
+
+- [Create another project for Cordova](https://cordova.apache.org/docs/en/latest/guide/cli/index.html#create-the-app)
+
+```
+cordova create <MY-APP-NAME>
+```
+
+- Copy the content of `dist` folder to `wwww` in your Cordova project.
+
+- [Add Platforms](https://cordova.apache.org/docs/en/latest/guide/cli/index.html#add-platforms):
+
+```
+cordova platform add android --save
+```
+
+- [Build for your platform](https://cordova.apache.org/docs/en/latest/guide/cli/index.html#build-the-app)
+
+```
+cordova build android
+```
+
+## Contributing
+
+1. Fork it ( https://github.com/argelius/react-onsenui-redux-weather/fork )
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request
