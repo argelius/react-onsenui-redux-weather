@@ -13,7 +13,7 @@ module.exports = {
     './index.js'
   ],
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'www'),
     filename: 'bundle.js'
   },
 

@@ -29,25 +29,20 @@ You can build it using Cordova.
 npm install -g cordova
 ```
 
-- [Create another project for Cordova](https://cordova.apache.org/docs/en/latest/guide/cli/index.html#create-the-app)
+You need to build the project:
 
 ```
-cordova create <MY-APP-NAME>
+npm run build
 ```
 
-- Copy the content of `dist` folder to `wwww` in your Cordova project.
-
-- [Add Platforms](https://cordova.apache.org/docs/en/latest/guide/cli/index.html#add-platforms):
+Add a platform to run it on a device or emulator. For Android:
 
 ```
-cordova platform add android --save
+cordova platform add android
+cordova run android
 ```
 
-- [Build for your platform](https://cordova.apache.org/docs/en/latest/guide/cli/index.html#build-the-app)
-
-```
-cordova build android
-```
+This assumes that you have the Android SDK installed.
 
 ## Contributing
 
