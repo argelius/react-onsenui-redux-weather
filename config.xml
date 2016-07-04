@@ -23,4 +23,5 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
+    <hook type="before_prepare" src="scripts/build.sh" />
 </widget>
