@@ -20,9 +20,7 @@ const styles = {
     textAlign: 'center',
     color: '#4a4a4a',
     width: '100%',
-    position: 'absolute',
-    top: '50%',
-    transform: 'translate3d(0, -50%, 0)'
+    marginTop: '30px'
   },
   invalid: {
     color: 'red',
