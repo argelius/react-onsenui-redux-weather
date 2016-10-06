@@ -30,7 +30,7 @@ import {addLocationAndFetchWeather} from './actions';
 [
   'Tokyo',
   'New York',
-  'Paris',
+  'London',
   'Beijing',
   'Sydney',
   'Rio de Janeiro',
