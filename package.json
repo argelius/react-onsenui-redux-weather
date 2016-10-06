@@ -4,7 +4,7 @@
   "description": "Simple Weather App implemntation with Onsen UI React Components and Redux",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --progress --content-base www/",
+    "start": "webpack-dev-server --host 0.0.0.0 --progress --content-base www/",
     "build": "npm run lint && cross-env NODE_ENV=production webpack --config webpack.config.prod.js",
     "deploy": "npm run build && git commit www -m \"Deploy\" && git subtree push --prefix www origin gh-pages",
     "lint": "eslint ."
