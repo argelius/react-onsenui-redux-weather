@@ -38,7 +38,7 @@
     "json-loader": "^0.5.4",
     "ncp": "^2.0.0",
     "node-uuid": "^1.4.7",
-    "onsenui": "^2.0.0-rc.18",
+    "onsenui": "^2.0.1",
     "postcss-loader": "^0.11.1",
     "promise": "^7.1.1",
     "react": "^15.3.1",
